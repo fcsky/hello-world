@@ -48,6 +48,9 @@ button{
 	height: 27.28px;
 	margin-left: 5px;
 
+	background-color: white;
+	border:1px solid black;
+	outline: none;
 }
 input{
 	width:100px;
@@ -67,11 +70,7 @@ th{
 	/*float: right;*/	
 	margin-top: 10px;
 }
-button{
-	background-color: white;
-	border:1px solid black;
-	outline: none;
-}
+
 button:hover{
 	background-color: #BBFFFF;
 	

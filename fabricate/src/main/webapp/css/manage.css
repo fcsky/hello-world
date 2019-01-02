@@ -23,7 +23,7 @@ body{
 	text-align: center;
 }
 #search{
-
+		
 	font-size: 15px;
 	padding: 3px;
 }
@@ -37,6 +37,10 @@ select,#searchInput,#searchButton{
 	font-size:20px;
 	width:70px;
 	border:1px  solid black;
+	outline:none;
+}
+#searchButton:hover{
+	background-color:#A5A5A5;
 }
 #searchInput{
 	height:40px;

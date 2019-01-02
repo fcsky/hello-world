@@ -116,19 +116,27 @@ function ajax_finduser(){
 		success : function(data) {
 			$("table tr:not('#t_head')").remove();
 			var val;
-			$.each(data, function(i, value) {
-				val = "<tr>" +
-						"<td class='id'>"+ value.id+ "</td>" +
-						"<td class='email'>"+ value.email+ "</td>" +
-						"<td class='uname'>"+ value.uname+ "</td>" +
-						"<td class='sign'>"+ (value.sign == undefined ? "" : value.sign)+ "</td>" +
-						"<td class='birthday'>"+ value.birthday+ "</td>" +
-						"<td class='sex'>"+ value.sex+ "</td>" +
-						"<td class='address'>"+ (value.address == undefined ? "": value.address) + "</td>" +
-						"<td><button id='update'>修改</button><input type='checkbox' value="+value.id+"></td>"
-					  "</tr>";
+			if(data==""){
+				val = "<tr> <td  colspan='8'>未查询到内容</td></tr>";
 				$("table").append(val);
-			});
+				$("#page").css("display","none");
+			}
+			else{
+				$("#page").css("display","block");
+				$.each(data, function(i, value) {
+					val = "<tr>" +
+							"<td class='id'>"+ value.id+ "</td>" +
+							"<td class='email'>"+ value.email+ "</td>" +
+							"<td class='uname'>"+ value.uname+ "</td>" +
+							"<td class='sign'>"+ (value.sign == undefined ? "" : value.sign)+ "</td>" +
+							"<td class='birthday'>"+ value.birthday+ "</td>" +
+							"<td class='sex'>"+ value.sex+ "</td>" +
+							"<td class='address'>"+ (value.address == undefined ? "": value.address) + "</td>" +
+							"<td><button id='update'>修改</button><input type='checkbox' value="+value.id+"></td>"
+						  "</tr>";
+					$("table").append(val);
+				});
+			}
 
 		 },
 		 error : function(jqXHR) {
