@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/manage.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/manage.css">
+</head>
+<body>
+<div id="all">
+	<div id="header">
+			<div id="searchbar">
+			查询列：
+			<select id="searchColumns">
+				<option value="id">ID</option>
+				<option value="email">邮箱</option>
+				<option value="uname">用户名</option>
+				<option value="sign">签名</option>
+				<option value="birthday">生日</option>
+				<option value="sex">性别</option>
+				<option value="address">家庭地址</option>
+			</select> 
+			匹配方式:
+			<select id="searchRule">
+				<option value="=">精确匹配</option>
+				<option value="like">模糊匹配</option>
+			</select> 
+			<input type="search" id="searchInput">
+			<button id="searchButton">搜索</button>
+		</div>
+		
+	</div>
+	<div id="container">
+		<div id="sidebar">
+			<ul>
+				<li>用户管理</li>
+				<li>管理员</li>
+				<li>书籍管理</li>
+			</ul>
+		</div>
+		
+		
+	</div>
+	<div id="main_div">
+			<iframe id="main"  frameborder="0" scrolling="no" src="user.html"></iframe>
+		</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+@charset "UTF-8";
+#all{
+/* 	position: absolute;
+	left:50%;
+	margin-left: -500px; */
+	float:left;
+	width: 1300px;
+	text-align: center;
+/* 	background-color: yellow; */
+}
+body{
+	margin:0px;
+}
+#table_div{
+	
+/* 	background-color:green; */
+}
+table{
+	margin-left:50px;
+	/* width:960px; */
+}
+table,th,td{
+
+	border:1px solid black;
+	border-collapse: collapse;
+	text-align: center;
+	
+}
+th,td:not(#email),td:not(#operation){
+	padding:5px;
+	width: 120px;
+	/* background-color: #75898a; */
+
+}
+#operation{
+	width:155px;
+}
+#email{
+	width:220px;
+}
+/* #uname{
+	width:230px;
+} */
+
+
+
+button{
+	height: 27.28px;
+	margin-left: 5px;
+
+}
+input{
+	width:100px;
+}
+/* table{
+	position: fixed;
+	left: 50%;
+	margin-left: -500px;
+} */
+table tr:nth-child(Odd){
+	background-color: #DBDBDB;
+}
+th{
+	background-color:#A5A5A5;
+}
+#page{
+	/*float: right;*/	
+	margin-top: 10px;
+}
+button{
+	background-color: white;
+	border:1px solid black;
+	outline: none;
+}
+button:hover{
+	background-color: #BBFFFF;
+	
+}

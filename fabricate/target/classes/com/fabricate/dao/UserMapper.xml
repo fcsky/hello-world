@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.fabricate.dao.UserMapper">
+  
+  
+    		<!-- 搜索条件sql片段 -->
+  		<sql id="search">
+	  		<if test="userCustom.searchText!=null">
+	  			<if test="userCustom.searchColumns!=null">
+					${userCustom.searchColumns}
+				</if>
+				<if test="userCustom.searchRule==1">
+					like
+				</if>
+				<if test="userCustom.searchRule==2">
+					=
+				</if>
+				#{userCustom.searchText}
+ 			</if>
+  		</sql>
+  
+  
+  
+  
+  		<!-- 用户登录/搜索所有用户 -->
+  		<select id="findUser" parameterType="com.fabricate.module.UserQueryVo"   resultType="com.fabricate.module.UserCustom">
+  			SELECT *  FROM  usertb
+  			<where>
+  				<if test="userCustom!=null">
+  					<if test="userCustom.id!=null and userCustom.id!=0">
+  						and id=#{userCustom.id}
+  					</if>
+  					<if test="userCustom.email!=null">
+  						and email=#{userCustom.email}
+  					</if>
+  					<if test="userCustom.password!=null">
+  						and password=#{userCustom.password}
+  					</if>
+  					<include refid="search"></include>
+  				</if>
+  			</where>
+  			limit #{pageBean.index},#{pageBean.columns}
+  		</select>
+  		
+  		<!-- 管理员登录 -->
+  		<select id="findAdminUser" parameterType="com.fabricate.module.AdminUserVo" resultType="com.fabricate.module.AdminUserCustom">
+  			SELECT * FROM admin_user
+  			<where>
+  				<if test="adminUserCustom!=null">
+  					<if test="adminUserCustom.uname!=null">
+  						and uname=#{adminUserCustom.uname}
+  					</if>
+  					<if test="adminUserCustom.password!=null">
+  						and password=#{adminUserCustom.password}
+  					</if>
+  				</if>
+  			</where>
+  		</select>
+  		
+  		<!-- 邮箱验证 -->
+  		<select id="reg_email" parameterType="com.fabricate.module.UserCustom" resultType="com.fabricate.module.UserCustom">
+  			SELECT * from usertb WHERE email=#{email}
+  		</select>
+  		
+  		<!-- 统计用户总数 -->
+  		<select id="countUser" parameterType="com.fabricate.module.AdminUserVo" resultType="int">
+  			SELECT COUNT(*)  FROM usertb
+  			<where>
+  			<if test="userCustom!=null">
+  				<include refid="search"></include>
+  			</if>
+  			</where>
+  		</select>
+  		
+  		<!-- 用户注册 -->
+  		<insert id="addUser" parameterType="com.fabricate.module.UserCustom" keyProperty="id">
+  			INSERT INTO usertb (email,password,uname) value(#{email},#{password},#{uname})
+  			<selectKey order="AFTER" resultType="int" keyProperty="id">
+  			SELECT LAST_INSERT_ID() AS id
+  			</selectKey>
+  		</insert>
+		<!-- 删除用户 -->
+		<delete id="delUser" parameterType="int">
+			DELETE FROM usertb WHERE id=#{value}
+		</delete>
+		
+		<!-- 修改用户 -->
+		<update id="updateUser" parameterType="com.fabricate.module.UserCustom">
+			UPDATE usertb SET email=#{email},
+			uname=#{uname},sign=#{sign},
+			birthday=#{birthday},sex=#{sex},address=#{address}
+			WHERE id=#{id}
+		</update>
+  </mapper>
