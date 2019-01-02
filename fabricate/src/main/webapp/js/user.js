@@ -10,58 +10,58 @@ $(document).ready(
 			 var height=$("table").outerWidth();
 
 	 
-		//点击搜索按钮
-		$('#searchButton', parent.document).click(function(){
-			searchColumns=$("#searchColumns option:selected", parent.document).val();
-			searchRule=$("#searchRule option:selected", parent.document).val();
-			searchText=$("#searchInput", parent.document).val();
-			flag=6;
-			page(flag,searchColumns,searchRule,searchText);
-			
-		});
-		
-		
-		
-		//下一页
-		$("#next").click(function(){
-			flag=2;
-			page(flag,searchColumns,searchRule,searchText);
-		});
-		//上一页
-		$("#last").click(function(){
-			flag=3;
-			page(flag,searchColumns,searchRule,searchText);
-		});
-		//首页
-		$("#first").click(function(){
-			flag=4;
-			page(flag,searchColumns,searchRule,searchText);
-		});
-		//尾页
-		$("#end").click(function(){
-			flag=5;
-			page(flag,searchColumns,searchRule,searchText);
-		});
-		
-		
-		//删除
-		$("#delete").click(function(){
-			var del=[];
-			$choose=$("input:checkbox:checked");
-			if($choose.val()!=null){
-				$choose.each(function(){
-					del.push($(this).val());
-				});
+			//点击搜索按钮
+			$('#searchButton', parent.document).click(function(){
+				searchColumns=$("#searchColumns option:selected", parent.document).val();
+				searchRule=$("#searchRule option:selected", parent.document).val();
+				searchText=$("#searchInput", parent.document).val();
+				flag=6;
+				page(flag,searchColumns,searchRule,searchText);
 				
-				if(confirm("是否确认删除")){
-					del_user(del.join(","));
-				}
-			}
-			else{
-				alert("请选择需要删除的用户");
-			}
+			});
 			
-		});
+		
+
+					
+			// 下一页
+			$("#next").click(function() {
+				flag = 2;
+				page(flag, searchColumns, searchRule, searchText);
+			});
+			// 上一页
+			$("#last").click(function() {
+				flag = 3;
+				page(flag, searchColumns, searchRule, searchText);
+			});
+			// 首页
+			$("#first").click(function() {
+				flag = 4;
+				page(flag, searchColumns, searchRule, searchText);
+			});
+			// 尾页
+			$("#end").click(function() {
+				flag = 5;
+				page(flag, searchColumns, searchRule, searchText);
+			});
+		
+		
+			//删除
+			$("#delete").click(function() {
+				var del = [];
+				$choose = $("input:checkbox:checked");
+				if ($choose.val() != null) {
+					$choose.each(function() {
+						del.push($(this).val());
+					});
+
+					if (confirm("是否确认删除")) {
+						del_user(del.join(","));
+					}
+				} else {
+					alert("请选择需要删除的用户");
+				}
+
+			});
 		
 		//修改
 		$(document).on('click',"table button",function(){
@@ -89,17 +89,16 @@ $(document).ready(
 		});
 		
 		//全选
-		$("#chooseAll").click(function(){
-			$chooseAll=$(this).text();
-			if($chooseAll=="全选"){
-				$("input:checkbox").prop("checked",true);
-			}
-			else{
-				$("input:checkbox").prop("checked",false);
-			}
-			$(this).text($chooseAll=="全选"?"全不选":"全选");
+			$("#chooseAll").click(function() {
+				$chooseAll = $(this).text();
+				if ($chooseAll == "全选") {
+					$("input:checkbox").prop("checked", true);
+				} else {
+					$("input:checkbox").prop("checked", false);
+				}
+				$(this).text($chooseAll == "全选" ? "全不选" : "全选");
 
-		});
+			});
 });
 
 
@@ -145,64 +144,62 @@ function ajax_finduser(){
 	});
 }
 //显示页数ajax
-function page(flag,searchColumns,searchRule,searchText){
+function page(flag, searchColumns, searchRule, searchText) {
 	$.ajax({
-		type:"GET",
-		url:"../count",
+		type : "GET",
+		url : "../count",
 		dataType : "json",
 		data : {
-			flag:flag,
-			searchColumns:searchColumns,
-			searchRule:searchRule,
-			searchText:searchText,
+			flag : flag,
+			searchColumns : searchColumns,
+			searchRule : searchRule,
+			searchText : searchText,
 		},
-		success:function(data){
+		success : function(data) {
 			ajax_finduser();
-			$("#page_lable").text(data.current+"/"+data.allPage);
-			
+			$("#page_lable").text(data.current + "/" + data.allPage);
+
 		},
-		error:function(jqXHR){
-			
+		error : function(jqXHR) {
+
 		}
 	});
 }
 //删除ajax
-function del_user(del){
+function del_user(del) {
 	$.ajax({
-		type:"GET",
-		url:"../delUser",
-		dataType:"json",
-		data:{
-			updateId:del,
+		type : "GET",
+		url : "../delUser",
+		dataType : "json",
+		data : {
+			updateId : del,
 		},
-		success:function(data){
-			if(data.msg){
+		success : function(data) {
+			if (data.msg) {
 				alert("删除成功");
 				$("input:checkbox:checked").parent().parent().remove();
-			}
-			else
+			} else
 				alert("删除失败");
 		}
-		
+
 	});
 }
 //修改
-function update_user(updateUser){
+function update_user(updateUser) {
 	$.ajax({
-		type:"POST",
-		url:"../updateUser",
-		dataType:"json",
-		data:{
-			updateUser:updateUser,
+		type : "POST",
+		url : "../updateUser",
+		dataType : "json",
+		data : {
+			updateUser : updateUser,
 		},
-		success:function(data){
-			if(data.msg){
+		success : function(data) {
+			if (data.msg) {
 				alert("修改成功");
-				
-			}
-			else
+
+			} else
 				alert("修改失败");
 		}
-		
+
 	});
 }

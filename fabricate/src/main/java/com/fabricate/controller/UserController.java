@@ -111,7 +111,6 @@ public class UserController extends HttpServlet {
 		//搜索内容和页面信息，在count方法中已经传入，所以只需调用就行
 		userQueryVo.setPageBean(pageBean);
 		String json=userService.findAllUser(userQueryVo);
-		System.out.println(json);
 		writer.print(json);
 	}
 	

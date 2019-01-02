@@ -30,19 +30,14 @@ $(document).ready(function(){
 		if(flag==0){
 			if(email_test()&password_test()){
 				addUser();
-				
 			}
 		}
 		else{
 			$("#login_bn").animate({width:'52px'},490);
 			$(this).animate({width:'247px'},510);
-			
 			$("#set_up").slideUp("slow");
-			
-			
 			setTimeout(function(){
 
-				// $("#user_text").slideUp(400);
 				$("#user_div").slideDown(400);
 			},400);
 			
@@ -99,74 +94,71 @@ $(document).ready(function(){
 
 
 //普通用户登录ajax
-function ajax_user(){
-		$.ajax({
-		type:"POST",
-		url:"login",
-		dataType:"json",
-		data:{
-			email:$("#email_text").val(),
-			password:$("#password_text").val(),
+function ajax_user() {
+	$.ajax({
+		type : "POST",
+		url : "login",
+		dataType : "json",
+		data : {
+			email : $("#email_text").val(),
+			password : $("#password_text").val(),
 		},
-		success:function(data){
-			if(data.key){
-				$(window).attr("location","page/manage.html");
-			}
-			else{
+		success : function(data) {
+			if (data.key) {
+				$(window).attr("location", "page/manage.html");
+			} else {
 				$("#error_tips").text("邮箱或密码错误");
 			}
 		},
-		error:function(jqXHR){
+		error : function(jqXHR) {
 			$("#error_tips").text("服务器错误，请稍后重试");
 		}
-		
+
 	});
 }
 //管理员登录ajax
-function ajax_admin(){
-		$.ajax({
-		type:"POST",
-		url:"adminLogin",
-		dataType:"json",
-		data:{
-			uname:$("#email_text").val(),
-			password:$("#password_text").val(),
+function ajax_admin() {
+	$.ajax({
+		type : "POST",
+		url : "adminLogin",
+		dataType : "json",
+		data : {
+			uname : $("#email_text").val(),
+			password : $("#password_text").val(),
 		},
-		success:function(data){
-			if(data.key){
-				$(window).attr("location","page/manage.html");
-			}
-			else{
+		success : function(data) {
+			if (data.key) {
+				$(window).attr("location", "page/manage.html");
+			} else {
 				$("#error_tips").text("邮箱或密码错误");
 			}
 		},
-		error:function(jqXHR){
+		error : function(jqXHR) {
 			$("#error_tips").text("服务器错误，请稍后重试");
 		}
-		
+
 	});
 }
 //添加用户
-function addUser(){
+function addUser() {
 	$.ajax({
-		type:"POST",
-		url:"addUser",
-		dataType:"json",
-		data:{
-			email:$("#email_text").val(),
-			password:$("#password_text").val(),
-			uname:$("#user_text").val(),
+		type : "POST",
+		url : "addUser",
+		dataType : "json",
+		data : {
+			email : $("#email_text").val(),
+			password : $("#password_text").val(),
+			uname : $("#user_text").val(),
 		},
-		success:function(data){
-			if(data.msg==1){
-					$("#error_tips").text("注册成功,请登录");
-			}
-			else if(data.msg==3){
+		success : function(data) {
+			if (data.msg == 1) {
+				$("#error_tips").text("注册成功,请登录");
+			} else if (data.msg == 3) {
 				$("#email_error").text("该邮箱已存在,请登录或重新输入");
 			}
 		},
-		error:function(jqXHR){
-			
+		error : function(jqXHR) {
+
 		}
 	});
 }
@@ -174,48 +166,39 @@ function addUser(){
 
 
 //邮箱验证
-function email_test(){
-	var email=$("#email_text").val();
-	
+function email_test() {
+	var email = $("#email_text").val();
 
-	var email_error=$("#email_error");
-	
-	var regular=/[\w_]{6,11}[@][a-zA-Z]+[.][a-zA-Z]{2,4}/;
-	if (email!="") {
-		if(!regular.test(email)){
+	var email_error = $("#email_error");
+
+	var regular = /[\w_]{6,11}[@][a-zA-Z]+[.][a-zA-Z]{2,4}/;
+	if (email != "") {
+		if (!regular.test(email)) {
 			email_error.text("邮箱格式错误");
 			return false;
-		}
-		else{
+		} else {
 			email_error.text("");
 			return true;
 		}
-		
-	}
-	else{
+
+	} else {
 		email_error.text("请输入邮箱");
 		return false;
 	}
-
-
 }
 //密码验证
-function password_test(){
-	var password=$("#password_text").val();
-	var password_error=$("#password_error");
-	if(password!=""){
-		if(password.length>=6&&password.length<=16){
+function password_test() {
+	var password = $("#password_text").val();
+	var password_error = $("#password_error");
+	if (password != "") {
+		if (password.length >= 6 && password.length <= 16) {
 			return true;
-		}
-		else{
+		} else {
 			password_error.text("密码长度为6~16位");
 			return false;
 		}
-				
-		
-		
-	}
-	else{
+
+	} else {
 		password_error.text("请输入密码");
 		return false;
 	}
