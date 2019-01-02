@@ -1,4 +1,4 @@
-# html+ajax+ssm
+# hello world
 使用了html+ajax+ssm框架 
 
 使用maven管理jar包
