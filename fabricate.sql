@@ -11,7 +11,7 @@
  Target Server Version : 80013
  File Encoding         : 65001
 
- Date: 02/01/2019 17:07:26
+ Date: 02/01/2019 17:10:13
 */
 
 SET NAMES utf8mb4;
@@ -67,23 +67,23 @@ INSERT INTO `usertb` VALUES (15, '345', '234', '234', NULL, NULL, '2018-12-04', 
 INSERT INTO `usertb` VALUES (16, 'czxfsad', 'sdf', 'sdf', NULL, NULL, '2018-12-14', '男', NULL);
 INSERT INTO `usertb` VALUES (17, 'wer', 'sdf', 'sdf', NULL, NULL, '2018-12-26', '保密', NULL);
 INSERT INTO `usertb` VALUES (21, 'xcv', 'xcv', 'x', NULL, NULL, '2018-12-08', '男', NULL);
-INSERT INTO `usertb` VALUES (23, 'sfwe', '123456', '张三', NULL, '', '1945-12-03', '保密', '');
-INSERT INTO `usertb` VALUES (24, '3254@qq.com', '234', 'sdfi', NULL, NULL, NULL, '保密', NULL);
-INSERT INTO `usertb` VALUES (25, 'werwe', 'werqw', NULL, NULL, NULL, NULL, '保密', NULL);
-INSERT INTO `usertb` VALUES (26, 'wqerqw', '345342', NULL, NULL, NULL, NULL, '保密', NULL);
-INSERT INTO `usertb` VALUES (27, '3425', '3245', NULL, NULL, NULL, NULL, '保密', NULL);
-INSERT INTO `usertb` VALUES (28, 'sdaf', 'saer', NULL, NULL, NULL, NULL, '保密', NULL);
-INSERT INTO `usertb` VALUES (29, 'wer234', 'sfa23', NULL, NULL, NULL, NULL, '保密', NULL);
-INSERT INTO `usertb` VALUES (30, '1591477969@hotmail.com', '345', '这是一个月黑风高的夜晚', NULL, '微软微软', '2018-09-23', '保密', '山大佛i是你的');
-INSERT INTO `usertb` VALUES (31, '2352345@qq.com', '3452345', '3456456', NULL, NULL, NULL, '保密', NULL);
-INSERT INTO `usertb` VALUES (32, '3452345', '3464256', '3642345', NULL, NULL, NULL, '保密', NULL);
-INSERT INTO `usertb` VALUES (33, '32542534@qq.com', '35234534', '3452345', NULL, NULL, NULL, '保密', NULL);
-INSERT INTO `usertb` VALUES (34, '325324@qq.com', '234125', '3462345', NULL, 'dgsfd', '2018-07-03', '保密', '11111111');
-INSERT INTO `usertb` VALUES (35, '4356345@qq.com', '32451235', '2353245', NULL, 'sdfa', '2018-05-04', '保密', 'wertq');
-INSERT INTO `usertb` VALUES (36, '4364536@qq.com', '4645363456', '4563456', NULL, 'aaaa', '2018-06-03', '保密', 'bbbbb');
-INSERT INTO `usertb` VALUES (37, '345325@qq.com', '4352346', '3452345', NULL, NULL, NULL, '保密', NULL);
-INSERT INTO `usertb` VALUES (40, 'fhwieuhr@qq.com', '2341234', '3452345', NULL, NULL, NULL, '保密', NULL);
-INSERT INTO `usertb` VALUES (50, '346544556@qq.com', '45t63465456', '45634564536', NULL, NULL, NULL, '保密', NULL);
+INSERT INTO `usertb` VALUES (23, 'sfwe', '123456', '张三', NULL, '', '2019-01-07', '保密', '');
+INSERT INTO `usertb` VALUES (24, '3254@qq.com', '234', 'sdfi', NULL, NULL, '2019-01-25', '保密', NULL);
+INSERT INTO `usertb` VALUES (25, 'werwe', 'werqw', 'dsvsa', NULL, NULL, '2019-02-01', '保密', NULL);
+INSERT INTO `usertb` VALUES (26, 'wqerqw', '345342', 'sdaf', NULL, NULL, '2019-01-17', '保密', NULL);
+INSERT INTO `usertb` VALUES (27, '3425', '3245', 'brgh', NULL, NULL, '2019-01-02', '保密', NULL);
+INSERT INTO `usertb` VALUES (28, 'sdaf', 'saer', 'rtreyh', NULL, NULL, '2019-01-19', '保密', NULL);
+INSERT INTO `usertb` VALUES (29, 'wer234', 'sfa23', 'rthfghdf', NULL, NULL, '2019-06-02', '保密', NULL);
+INSERT INTO `usertb` VALUES (30, '1591477969@hotmail.com', '345', '这是一个月黑风高的夜晚', NULL, '微软微软', '2019-01-24', '保密', '山大佛i是你的');
+INSERT INTO `usertb` VALUES (31, '2352345@qq.com', '3452345', '3456456', NULL, NULL, '2018-12-31', '保密', NULL);
+INSERT INTO `usertb` VALUES (32, '3452345', '3464256', '3642345', NULL, NULL, '2018-12-03', '保密', NULL);
+INSERT INTO `usertb` VALUES (33, '32542534@qq.com', '35234534', '3452345', NULL, NULL, '2019-01-10', '保密', NULL);
+INSERT INTO `usertb` VALUES (34, '325324@qq.com', '234125', '3462345', NULL, 'dgsfd', '2019-01-04', '保密', '11111111');
+INSERT INTO `usertb` VALUES (35, '4356345@qq.com', '32451235', '2353245', NULL, 'sdfa', '2019-01-27', '保密', 'wertq');
+INSERT INTO `usertb` VALUES (36, '4364536@qq.com', '4645363456', '4563456', NULL, 'aaaa', '2019-01-28', '保密', 'bbbbb');
+INSERT INTO `usertb` VALUES (37, '345325@qq.com', '4352346', '3452345', NULL, NULL, '2019-01-17', '保密', NULL);
+INSERT INTO `usertb` VALUES (40, 'fhwieuhr@qq.com', '2341234', '3452345', NULL, NULL, '2019-01-14', '保密', NULL);
+INSERT INTO `usertb` VALUES (50, '346544556@qq.com', '45t63465456', '45634564536', NULL, NULL, '2019-01-04', '保密', NULL);
 INSERT INTO `usertb` VALUES (51, 'ertw@sdf.com', '32534', '5432', '3245', '3245', '2018-12-26', '男', '3452');
 INSERT INTO `usertb` VALUES (53, '345gre', '345', '3245', '346', 'awe', '2018-12-31', '保密', NULL);
 
